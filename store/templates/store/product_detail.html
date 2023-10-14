@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <div id="drop" class="z-[1000] hidden dark:bg-[white]  rounded-[2px] w-[300px] p-3 border-2 border-gray-300">
+            <h1 class="font-bold border-b-2 border-b-gray-300 mb-2 pb-2">Shipping & Fee Details</h1>
+            <div class="space-y-1">
+                <div class="flex justify-between items-center">
+                    <p class="text-gray-500">Price</p>
+                    <p class="font-medium">$179.99</p>
+                </div>
+                <div class="flex justify-between items-center">
+                    <p class="text-gray-500">AmazonGlobal Shipping</p>
+                    <p class="font-medium">$58.52</p>
+                </div>
+                <div class="flex justify-between items-center">
+                    <p class="text-teal-700 hover:underline">Estimated Import Fees Deposit</p>
+                    <p class="font-medium">$26.99</p>
+                </div>
+            </div>
+            <div class="flex justify-between items-center border-t-2 border-t-gray-300 mt-2 pt-2">
+                <p class="text-gray-500">Total</p>
+                <p class="font-medium">$26.99</p>
+            </div>
+        </div>
+        <a href="" class="flex items-center space-x-1 p-2 pl-4">
+            <i class="fa fa-chevron-left text-[12px]" aria-hidden="true"></i>
+            <p class="font-bold text-[12px] text-gray-700">Back to result</p>
+        </a>
+        <div class="bg-white m-4 flex px-2 py-4">
+            <div class="w-[80%]">
+                <img src="{{ single_product.image.url }}" class="w-[100%] h-[400px]" />
+            </div>
+            <div class="w[20%]">
+                <div class="w-[100%]">
+                    <h3 class="font-bold text-[15px]">{{single_product.name}}</h3>
+                    <div class="text-teal-500 flex space-x-2 py-1">
+                        <p class="font-bold">Brand:</p>
+                        <p>Amazon</p>
+                    </div>
+                    <div class="flex space-x-2 border-b-[2px] border-gray-300 pb-1">
+                        <p class="font-bold">Rating:</p>
+                        <p>5.7</p>
+                    </div>
+                    <div class="flex space-1-2">
+                        <p class="text-[18px] font-bold">$</p>
+                        <p class="text-[25px] font-bold">{{single_product.price}}</p>
+                      </div>
+                      <div>
+                        <div>
+                            <p class="mb-4">No Import Fees Deposit & $50.72 Shipping to Ghana Details</p>
+                            <ul class="space-y-3">
+                                <li class="text-justify">【Frog Disc Launchers Toys】 A robust outdoor sports toy with a cute frog design. Kids can exercise together while using the launcher, honing skills in launching, running, aiming, and catching.</li>
+                                <li class="text-justify">【Multiplayer Competition】 This toy set includes 2 launchers, 2 catching baskets, and 24 flying discs in 4 colors. Ideal for 1-4 players, perfect for family fun.</li>
+                                <li class="text-justify">【Versatile Play】 Each launcher can simultaneously shoot 4 discs, offering diverse gameplay. From reaching greater heights to launching discs of different colors, players can capture designated discs, enhancing the experience.</li>
+                                <li class="text-justify">【Durability and Safety】 The outdoor toy passes US ASTM tests with CPC certificate. Tested through 3000 rounds without damage, it showcases resilience. Child-friendly ABS material ensures a soft and smooth texture.</li>
+                                <li class="text-justify">【Brand Vision - Belemar】 We're committed to creating a joyful childhood worldwide. With premium materials and innovative designs, we inspire happiness and holistic growth in each consumer. Our toys promote learning and physical activity, enriching playtime experiences.</li>
+                            </ul>
+                    
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="w-[40%] border-gray-100 border-2 mx-3 px-2">
+                <div class="flex space-1-2">
+                    <p class="text-[18px] font-bold">$</p>
+                    <p class="text-[25px] font-bold">{{single_product.price}}</p>
+                  </div>
+                  <div>
+                  <div>
+                        <p class="text-sm">
+                            $85.51 Shipping & Import Fees Deposit to Ghana
+                            <div class="flex my-1" id="dropdownDefaultButton1" data-dropdown-toggle="drop">
+                                <p class="text-sm text-teal-500">Details </p>
+                                <i class="fa fa-sort-desc text-teal-500 pl-2" aria-hidden="true"></i>
+                            </div>
+                        </p>
+                    </div>
+                    {% if single_product.stock == 0 %}
+                    <div class="mb-2 mt-4">
+                        <button class="bg-[red] py-1 w-full">Out of Stock</button>
+                    </div>
+                    {% else %}
+                    <div class="mb-2 mt-4">
+                        <a href="{% url 'add_cart' single_product.id %}">
+                            <button class="bg-[#ff9903] py-1 w-full">Add to Cart</button>
+                        </a>
+                    </div>
+                    <div class="mb-2">
+                        <button class="bg-orange-500 py-1 w-full">Buy Now</button>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="m-4 p-4 bg-white">
+            <div class="border-b-[1px] border-b-gray-300 pb-2">
+                <p class="font-bold">What's in the box</p>
+                <ul class="ml-6">
+                    <li style="list-style: circle;">Cable</li>
+                </ul>
+            </div>
+            <div class="border-b-[1px] border-b-gray-300 pb-2">
+                <p class="mt-10 mb-2 font-bold">Looking for specific info?</p>
+                <div class="flex items-center bg-white border-[1px] border-gray-300 h-10 w-[600px]">
+                    <input type="text" placeholder="Search in reviews, Q$A" class="flex-1"/>
+                </div>
+                <p class="mt-10 mb-1 font-bold">Videos</p>
+                <p>Help others learn more about this product by uploading a video!</p>
+            </div>
+
+            <div>
+                <p class="mt-10 mb-2 font-bold">Product Information</p>
+                <div class="flex space-x-8">
+                    <div class="w-[50%]">
+                        <div class="flex border-y-[1px] border-y-gray-300">
+                            <p class="w-[50%] bg-gray-100 p-2">Product Dimensions</p>
+                            <p class="w-[50%] p-2">8.07 x 3.81 x 7.2 inches</p>
+                        </div>
+                        <div class="flex">
+                            <p class="w-[50%] bg-gray-100 p-2">Item Weight</p>
+                            <p class="w-[50%] p-2">12.3 ounces</p>
+                        </div>
+                        <div class="flex border-y-[1px] border-y-gray-300">
+                            <p class="w-[50%] bg-gray-100 p-2">ASIN</p>
+                            <p class="w-[50%] p-2">B0CBQG4ZVJ</p>
+                        </div>
+                        <div class="flex">
+                            <p class="w-[50%] bg-gray-100 p-2">Item model number</p>
+                            <p class="w-[50%] p-2">CA-9011296-NA</p>
+                        </div>
+                        <div class="flex border-y-[1px] border-y-gray-300">
+                            <p class="w-[50%] bg-gray-100 p-2">Batteries</p>
+                            <p class="w-[50%] p-2">1 Lithium Ion batteries required. (included)</p>
+                        </div>
+                    </div>
+                    <div class="w-[50%]">
+                        <p class="font-bold border-b-[1px] border-b-gray-300 pb-2">Warranty & Support</p>
+                        <p class="text-gray-500">Manufacturer’s warranty can be requested from customer service. Click here to make a request to customer service.</p>
+                        <p class="font-bold border-b-[1px] mt-2 border-b-gray-300 pb-2">Feedback</p>
+                        <p class="text-sm mt-2">
+                            Would you like to
+                            <div class="flex my-1" id="dropdownDefaultButton1" data-dropdown-toggle="drop">
+                                <p class="text-[13px] text-teal-500 font-bold"> tell us about a lower price? </p>
+                                <i class="fa fa-sort-desc text-teal-500 pl-2" aria-hidden="true"></i>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-[17px] bg-white mb-4">
+            <div class="space-y-2 p-4">
+                <p class="uppercase font-bold">Deals on related products</p>
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Sponsored</p>
+                </div>
+            </div>
+        <div class="flex items-center justify-between">
+                {% for product in related_products %}
+                <div
+                class="mx-2 mt-2 mb-2 flex flex-col self-start rounded-[2px] bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-white sm:shrink-0 sm:grow sm:basis-0">
+                <a href="{{ product.get_url }}" class="mx-3">
+                  <img
+                    class="w-full h-[250px]"
+                    src="{{ product.image.url }}" />
+                </a>
+                <div class="p-2">
+                    <p class="text-gray-600" style="line-height: 1;
+                    height: 5em;
+                    text-align: justify; 
+                    line-height: 25px;
+                  white-space: normal;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: block;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;">{{product.name}}</p>
+                  <div class="flex space-1-2">
+                    <p class="text-[18px] font-bold">$</p>
+                    <p class="text-[25px] font-bold">{{product.price}}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        </div>
+        <div class="mx-[17px] bg-white mb-4">
+            <div class="space-y-2 p-4">
+                <p class="uppercase font-bold">Most bought products</p>
+                <div>
+                    <p class="text-sm font-medium text-gray-500">Sponsored</p>
+                </div>
+            </div>
+        <div class="flex items-center justify-between">
+                {% for product in most_bought_products %}
+                <div
+                class="mx-2 mt-2 mb-2 flex flex-col self-start rounded-[2px] bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-white sm:shrink-0 sm:grow sm:basis-0">
+                <a href="{{ product.get_url }}" class="mx-3">
+                  <img
+                    class="w-full h-[250px]"
+                    src="{{ product.image.url }}" />
+                </a>
+                <div class="p-2">
+                    <p class="text-gray-600" style="line-height: 1;
+                    height: 5em;
+                    text-align: justify; 
+                    line-height: 25px;
+                  white-space: normal;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: block;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;">{{product.name}}</p>
+                  <div class="flex space-1-2">
+                    <p class="text-[18px] font-bold">$</p>
+                    <p class="text-[25px] font-bold">{{product.price}}</p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+{% endblock %}

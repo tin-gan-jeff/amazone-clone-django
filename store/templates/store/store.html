@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="flex space-x-5 mx-4 mt-4 mb-4">
+        <div class="w-[18%] bg-white px-4 h-[520px]">
+            <h1 class="mb-3 uppercase font-bold mt-2">All Departments</h1>
+            {% for category in links %}
+            <ul>
+                <li class="flex items-center mb-2 space-x-1">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    <a href="{{ category.get_url }}" class="font-medium text-[14px]">{{category.name}}</a>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+        <div class="w-[82%] bg-white px-4">
+            <h1 class="uppercase font-bold mt-2">Amazon Store</h1>
+            <p class="text-[15px] text-gray-600">Shop home entertainment, TVs, home audio, headphones, cameras, accessories and more</p>
+            <div class="grid-cols-1 sm:grid md:grid-cols-5 z-1000">
+                {% for product in products %}
+                <div
+                class="mx-2 mt-2 mb-2 flex flex-col self-start rounded-[2px] bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-white sm:shrink-0 sm:grow sm:basis-0">
+                <a href="{{ product.get_url }}" class="mx-3">
+                  <img
+                    class="w-full h-[250px]"
+                    src="{{ product.image.url }}" />
+                </a>
+                <div class="p-2">
+                    <p class="text-gray-600" style="line-height: 1;
+                    height: 5em;
+                    text-align: justify; 
+                    line-height: 25px;
+                  white-space: normal;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: block;
+                  -webkit-line-clamp: 1;
+                  -webkit-box-orient: vertical;">{{product.name}}</p>
+                  <div class="flex space-1-2">
+                    <p class="text-[18px] font-bold">$</p>
+                    <p class="text-[25px] font-bold">{{product.price}}</p>
+                  </div>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+
+# If you are using PyCharm #
+.idea/
+
+# AWS User-specific
+.idea/**/aws.xml
+
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+
+# Environments
+.env
+env/
+
+# Visual Studio Code #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+.DS_Store
+*.sqlite3
+
+# Ignore Django Migrations in Development if you are working on team
+# Only for Development only
+#**/migrations/**
+#!**/migrations
+#!**/migrations/__init__.py
